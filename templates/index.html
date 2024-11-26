@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slot Machine</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Slot Machine</h1>
+        <div id="initial-balance-container">
+            <form id="balance-form" method="POST" action="/set_balance">
+                <label for="initial-balance">Enter initial balance: $</label>
+                <input type="number" id="initial-balance" name="initial_balance" min="1" required>
+                <button type="submit" id="set-balance-button">Set Balance</button>
+            </form>
+        </div>
+        <div id="game" style="display: none;">
+            <div>
+                <label for="balance">Balance: $</label>
+                <span id="balance">0</span>
+            </div>
+            <div>
+                <label for="lines">Lines to bet on:</label>
+                <input type="number" id="lines" min="1" max="3" value="1">
+            </div>
+            <div>
+                <label for="bet">Bet per line: $</label>
+                <input type="number" id="bet" min="1" max="100" value="1">
+            </div>
+            <button id="spin-button">Spin</button>
+            <div id="slot-machine">
+                <div class="slot-column"></div>
+                <div class="slot-column"></div>
+                <div class="slot-column"></div>
+            </div>
+            <div id="message"></div>
+        </div>
+        <button id="restart-button" style="position: absolute; bottom: 20px; right: 20px;">Restart Game</button>
+    </div>
+
+    <div id="final-balance-modal" class="modal">
+        <div class="modal-content">
+            <p>Your final balance is: $<span id="final-balance"></span></p>
+            <button id="final-balance-ok-button">OK</button>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
